@@ -1,3 +1,49 @@
 READ ME
 
-python -m retrain --bottleneck_dir=tf_files/bottlenecks --model_dir=tf_files/models/"${ARCHITECTURE}" --summaries_dir=tf_files/training_summaries/"${ARCHITECTURE}" --output_graph=tf_files/retrained_graph.pb --output_labels=tf_files/retrained_labels.txt --architecture="${ARCHITECTURE}" --image_dir=tf_files/flower_photos
+**Download and Install Anaconda** *(https://www.anaconda.com/distribution/)*
+
+**1. Once it is installed, open the Anaconda prompt and install the following things**
+
+```
+conda create --name tensorflow python=3.6
+```
+**Windows:**
+```
+activate tensorflow
+```
+**Mac:**
+```
+source activate tensorflow
+```
+
+
+```
+python retrain.py --image_dir=data_dir \
+--saved_model_dir=saved_model_dir \
+--bottleneck_dir=bottleneck_dir \
+--how_many_training_steps=2000 \
+--output_labels=output/output_labels.txt \
+--output_graph=output/retrain.pb
+```
+
+```
+conda install scipy
+pip install --upgrade sklearn
+pip install --upgrade pandas
+pip install --upgrade pandas-datareader
+pip install --upgrade matplotlib
+pip install --upgrade pillow
+pip install --upgrade tqdm
+pip install --upgrade requests
+pip install --upgrade h5py
+pip install --upgrade pyyaml
+pip install --upgrade tensorflow_hub
+pip install --upgrade bayesian-optimization
+pip install --upgrade tensorflow==1.12.0
+pip install --upgrade keras==2.2.4
+```
+
+
+**Download Link for Flower Dataset :** http://download.tensorflow.org/example_images/flower_photos.tgz
+
+**Retrain Command :** python -m retrain --bottleneck_dir=tf_files/bottlenecks --model_dir=tf_files/models/"${ARCHITECTURE}" --summaries_dir=tf_files/training_summaries/"${ARCHITECTURE}" --output_graph=tf_files/retrained_graph.pb --output_labels=tf_files/retrained_labels.txt --architecture="${ARCHITECTURE}" --image_dir=tf_files/flower_photos
